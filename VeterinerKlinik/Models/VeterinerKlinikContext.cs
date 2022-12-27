@@ -15,37 +15,37 @@ public partial class VeterinerKlinikContext : DbContext
     {
     }
 
-    public virtual DbSet<Adre> Adres { get; set; }
+    public virtual DbSet<Adres> Adres { get; set; }
 
-    public virtual DbSet<Asistan> Asistans { get; set; }
+    public virtual DbSet<Asistan> Asistan { get; set; }
 
-    public virtual DbSet<Cin> Cins { get; set; }
+    public virtual DbSet<Cins> Cin { get; set; }
 
-    public virtual DbSet<HastaNotu> HastaNotus { get; set; }
+    public virtual DbSet<HastaNotu> HastaNotu { get; set; }
 
-    public virtual DbSet<Hastum> Hasta { get; set; }
+    public virtual DbSet<Hasta> Hasta { get; set; }
 
-    public virtual DbSet<Il> Ils { get; set; }
+    public virtual DbSet<Il> Il { get; set; }
 
-    public virtual DbSet<Ilce> Ilces { get; set; }
+    public virtual DbSet<Ilce> Ilce { get; set; }
 
-    public virtual DbSet<IletisimBilgileri> IletisimBilgileris { get; set; }
+    public virtual DbSet<IletisimBilgileri> IletisimBilgileri { get; set; }
 
-    public virtual DbSet<Klinik> Kliniks { get; set; }
+    public virtual DbSet<Klinik> Klinik { get; set; }
 
-    public virtual DbSet<Kullanici> Kullanicis { get; set; }
+    public virtual DbSet<Kullanici> Kullanici { get; set; }
 
-    public virtual DbSet<Mahalle> Mahalles { get; set; }
+    public virtual DbSet<Mahalle> Mahalle { get; set; }
 
-    public virtual DbSet<Musteri> Musteris { get; set; }
+    public virtual DbSet<Musteri> Musteri { get; set; }
 
-    public virtual DbSet<Randevu> Randevus { get; set; }
+    public virtual DbSet<Randevu> Randevu { get; set; }
 
-    public virtual DbSet<RandevuTipi> RandevuTipis { get; set; }
+    public virtual DbSet<RandevuTipi> RandevuTipi { get; set; }
 
-    public virtual DbSet<Tur> Turs { get; set; }
+    public virtual DbSet<Tur> Tur { get; set; }
 
-    public virtual DbSet<Veteriner> Veteriners { get; set; }
+    public virtual DbSet<Veteriner> Veteriner { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -53,7 +53,7 @@ public partial class VeterinerKlinikContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Adre>(entity =>
+        modelBuilder.Entity<Adres>(entity =>
         {
             entity.HasKey(e => e.AdresNo).HasName("Adres_pkey");
 
@@ -94,7 +94,7 @@ public partial class VeterinerKlinikContext : DbContext
                 .HasConstraintName("veterinerFK");
         });
 
-        modelBuilder.Entity<Cin>(entity =>
+        modelBuilder.Entity<Cins>(entity =>
         {
             entity.HasKey(e => e.CinsNo).HasName("Cins_pkey");
 
@@ -137,7 +137,7 @@ public partial class VeterinerKlinikContext : DbContext
                 .HasConstraintName("randevuNoFK");
         });
 
-        modelBuilder.Entity<Hastum>(entity =>
+        modelBuilder.Entity<Hasta>(entity =>
         {
             entity.HasKey(e => e.HastaNo).HasName("Hasta_pkey");
 
@@ -409,7 +409,7 @@ public partial class VeterinerKlinikContext : DbContext
             entity.HasMany(d => d.HastaNos).WithMany(p => p.VeterinerNos)
                 .UsingEntity<Dictionary<string, object>>(
                     "VeterinerHastum",
-                    r => r.HasOne<Hastum>().WithMany()
+                    r => r.HasOne<Hasta>().WithMany()
                         .HasForeignKey("HastaNo")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("hastaFK"),

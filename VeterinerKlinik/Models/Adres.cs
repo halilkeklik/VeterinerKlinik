@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace VeterinerKlinik.Models;
 
@@ -7,7 +6,7 @@ public partial class Adres
 {
     public int AdresNo { get; set; }
 
-    public string Adres { get; set; } = null!;
+    public string adres { get; set; } = null!;
 
     public int MahalleNo { get; set; }
 

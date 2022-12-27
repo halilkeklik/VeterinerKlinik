@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VeterinerKlinik.Models;
 
-public partial class Hastum
+public partial class Hasta
 {
     public int HastaNo { get; set; }
 

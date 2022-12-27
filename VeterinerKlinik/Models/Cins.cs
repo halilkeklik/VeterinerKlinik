@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VeterinerKlinik.Models;
 
-public partial class Cin
+public partial class Cins
 {
     public int CinsNo { get; set; }
 
@@ -11,5 +11,5 @@ public partial class Cin
 
     public int TurNo { get; set; }
 
-    public virtual ICollection<Hastum> Hasta { get; } = new List<Hastum>();
+    public virtual ICollection<Hasta> Hasta { get; } = new List<Hasta>();
 }
